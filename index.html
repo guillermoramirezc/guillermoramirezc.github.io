@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guillermo Ramirez-Chiang — Finance</title>
+<meta name="description" content="Guillermo Ramirez-Chiang — Assistant Professor of Finance at Universidad de Piura. Research in corporate finance, governance, and the intersection of politics and finance." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#F7F6F1; --paper-2:#F1EFE8;
+    --ink:#16233B; --ink-soft:#465172; --muted:#8A8474;
+    --accent:#A67C3D; --accent-deep:#7E5C28;
+    --line:#E2DFD4; --line-strong:#D3CFC0;
+    --maxw:960px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+  body{ margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif; font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--accent); color:#fff; }
+  a{color:inherit; text-decoration:none;}
+  img{ display:block; max-width:100%; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+  .mono{ font-family:"IBM Plex Mono",monospace; font-size:12.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
+
+  /* NAV */
+  header.nav{ position:sticky; top:0; z-index:50; background:rgba(247,246,241,0.85); backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid var(--line); }
+  .nav-inner{ max-width:var(--maxw); margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:flex-end; gap:20px; }
+  .brand{ font-family:"Fraunces",serif; font-weight:600; font-size:18px; letter-spacing:-0.01em; }
+  .brand .dot{ color:var(--accent); }
+  .nav-links{ display:flex; gap:26px; }
+  .nav-links a{ font-size:14px; color:var(--ink-soft); position:relative; padding:2px 0; transition:color .2s; }
+  .nav-links a::after{ content:""; position:absolute; left:0; bottom:-3px; height:1.5px; width:0; background:var(--accent); transition:width .25s ease; }
+  .nav-links a:hover, .nav-links a.active{ color:var(--ink); }
+  .nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
+  @media (max-width:680px){ .nav-links{ display:none; } }
+
+  /* HERO */
+  .hero{ position:relative; padding:76px 0 56px; overflow:hidden; }
+  .hero .curve{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; opacity:.5;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent); }
+  .curve path.line{ fill:none; stroke:var(--accent); stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:3200; stroke-dashoffset:3200; animation:draw 2.6s cubic-bezier(.6,.05,.2,1) .3s forwards; }
+  .curve path.area{ fill:var(--accent); opacity:.05; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @media (prefers-reduced-motion:reduce){ .curve path.line{ animation:none; stroke-dashoffset:0; } }
+
+  .hero-grid{ position:relative; z-index:2; display:grid; grid-template-columns:1.35fr 0.85fr; gap:48px; align-items:center; }
+  @media (max-width:760px){ .hero-grid{ grid-template-columns:1fr; gap:32px; } }
+  .eyebrow{ margin-bottom:20px; }
+  h1{ font-family:"Fraunces",serif; font-weight:500; font-size:clamp(40px,6.5vw,66px); line-height:1.03; letter-spacing:-0.02em; margin:0 0 16px; }
+  .role{ font-size:19px; color:var(--ink-soft); font-weight:500; margin:0 0 28px; }
+  .role .sep{ color:var(--accent); margin:0 8px; }
+  .statement{ max-width:560px; font-size:18px; color:var(--ink); margin:0 0 30px; }
+  .hero-links{ display:flex; flex-wrap:wrap; gap:10px; }
+  .pill{ display:inline-flex; align-items:center; gap:7px; padding:8px 15px; border:1px solid var(--line-strong); border-radius:100px; font-size:14px; color:var(--ink-soft); background:var(--paper); transition:all .2s ease; }
+  .pill:hover{ border-color:var(--accent); color:var(--ink); transform:translateY(-1px); }
+  .pill.primary{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+  .pill.primary:hover{ background:var(--accent-deep); border-color:var(--accent-deep); color:#fff; }
+
+.portrait{
+    justify-self:center;
+    width:400px;
+    flex-shrink:0;
+}
+
+.portrait-frame{
+    aspect-ratio:4/5;
+    border-radius:6px;
+    overflow:hidden;
+    position:relative;
+    background:var(--paper-2);
+    border:1px solid var(--line-strong);
+    box-shadow:0 1px 0 #fff inset, 0 18px 40px -24px rgba(22,35,59,.4);
+}
+
+.portrait-mono{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Fraunces",serif;
+    font-weight:600;
+    font-size:60px;
+    color:var(--accent);
+}
+
+.portrait img{
+    display:block;
+    width:100%;
+    height:auto;
+    object-fit:cover;
+}
+
+.portrait-cap{
+    text-align:center;
+    margin-top:12px;
+}
+
+  /* SECTION */
+  section{ padding:60px 0; border-top:1px solid var(--line); }
+  .sec-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:34px; }
+  .sec-head .num{ font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--accent); }
+  .sec-head h2{ font-family:"Fraunces",serif; font-weight:500; font-size:30px; letter-spacing:-0.01em; margin:0; }
+
+  /* ABOUT */
+  .about-grid{ display:grid; grid-template-columns:1.6fr 1fr; gap:48px; align-items:start; }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; gap:32px; } }
+  .about-body p{ margin:0 0 16px; }
+  .about-body p:last-child{ margin-bottom:0; }
+  .edu-label{ display:block; margin-bottom:16px; }
+  .edu{ list-style:none; margin:0; padding:0; }
+  .edu li{ padding:13px 0; border-bottom:1px solid var(--line); }
+  .edu li:first-child{ padding-top:0; }
+  .edu li:last-child{ border-bottom:none; padding-bottom:0; }
+  .edu .deg{ display:block; font-weight:600; font-size:16.5px; color:var(--ink); }
+  .edu .inst{ display:block; font-size:14.5px; color:var(--muted); margin-top:2px; }
+  .lead{ font-family:"Fraunces",serif; font-size:21px; line-height:1.45; font-weight:400; color:var(--ink); }
+  .facts{ background:var(--paper-2); border:1px solid var(--line); border-radius:8px; padding:24px; }
+  .fact{ padding:12px 0; border-bottom:1px solid var(--line); }
+  .fact:first-child{ padding-top:0; }
+  .fact:last-child{ border-bottom:none; padding-bottom:0; }
+  .fact .k{ font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:3px; }
+  .fact .v{ font-size:15.5px; color:var(--ink); }
+  .interests{ margin-top:0; }
+  .interests .mono{ display:block; margin-bottom:12px; }
+  .tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{ font-size:13.5px; padding:5px 12px; border-radius:5px; background:var(--paper); color:var(--ink-soft); border:1px solid var(--line); }
+
+  /* PUBLICATIONS */
+  .pub-group > .mono{ display:block; margin-bottom:22px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+  .paper{ padding:24px 0; border-bottom:1px solid var(--line); }
+  .paper:first-of-type{ padding-top:4px; }
+  .paper:last-of-type{ border-bottom:none; }
+  .paper-meta{ display:flex; gap:12px; align-items:center; margin-bottom:9px; flex-wrap:wrap; }
+  .paper-meta .year{ font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--ink); }
+  .badge{ font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:4px; }
+  .badge.nber{ background:var(--ink); color:var(--paper); }
+  .badge.wp{ background:#EDE7DA; color:var(--accent-deep); }
+  .paper-title{ font-family:"Fraunces",serif; font-weight:500; font-size:22px; line-height:1.28; letter-spacing:-0.01em; margin:0 0 7px; }
+  .paper-title a{ transition:color .18s; }
+  .paper-title a:hover{ color:var(--accent-deep); }
+  .paper-authors{ font-size:15px; color:var(--ink-soft); margin:0 0 4px; }
+  .paper-authors .me{ color:var(--ink); font-weight:600; border-bottom:1.5px solid var(--accent); }
+  .paper-venue{ font-size:14px; font-style:italic; color:var(--muted); margin:0 0 8px; }
+  .paper-presented{ font-size:13.5px; color:var(--ink-soft); margin:0 0 12px; line-height:1.5; }
+  .paper-presented .pl{ font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-deep); margin-right:8px; }
+  details.abs{ margin:6px 0 12px; }
+  details.abs summary{ cursor:pointer; list-style:none; font-size:13px; color:var(--accent-deep); font-family:"IBM Plex Mono",monospace; letter-spacing:.04em; display:inline-flex; align-items:center; gap:6px; user-select:none; }
+  details.abs summary::-webkit-details-marker{ display:none; }
+  details.abs summary::before{ content:"+"; font-weight:600; }
+  details.abs[open] summary::before{ content:"–"; }
+  details.abs p{ margin:12px 0 0; font-size:15px; color:var(--ink-soft); line-height:1.6; padding-left:14px; border-left:2px solid var(--line-strong); }
+  .paper-links{ display:flex; gap:16px; flex-wrap:wrap; }
+  .paper-links a{ font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-soft); letter-spacing:.03em; border-bottom:1px solid transparent; padding-bottom:1px; transition:all .18s; }
+  .paper-links a:hover{ color:var(--accent-deep); border-bottom-color:var(--accent); }
+
+  /* CONTACT */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px 44px; }
+  @media (max-width:680px){ .contact-grid{ grid-template-columns:1fr; } }
+  .contact-item .mono{ display:block; margin-bottom:4px; }
+  .contact-item a, .contact-item span{ font-size:16px; color:var(--ink); }
+  .contact-item a:hover{ color:var(--accent-deep); }
+
+  /* FOOTER */
+  footer{ border-top:1px solid var(--line); padding:34px 0 48px; }
+  .foot-inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  footer .mono{ font-size:11.5px; }
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; } }
+  a:focus-visible, summary:focus-visible, .pill:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div id="top" class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Guillermo<br>Ramirez-Chiang</h1>
+        <p class="role">Assistant Professor of Finance <span class="sep">/</span> Universidad de Piura</p>
+        <div class="hero-links">
+          <a class="pill primary" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2781538" target="_blank" rel="noopener">SSRN Profile ↗</a>
+          <a class="pill" href="https://www.linkedin.com/in/guillermo-r-3555a024b/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="pill" href="mailto:guillermo.ramirez@udep.edu.pe">Email</a>
+          <!-- CV: add when ready →  <a class="pill" href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a> -->
+        </div>
+      </div>
+
+      <!-- PHOTO: replace the .portrait-mono div below with <img src="photo.jpg" alt="Guillermo Ramirez-Chiang"> -->
+      <div class="portrait">
+        <div class="portrait-frame">
+          <img src="foto_website2.jpeg" alt="Guillermo Ramirez-Chiang">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>About</h2></div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>
+          Guillermo Ramirez-Chiang is an Assistant Professor of Finance at Universidad de
+          Piura. He holds a PhD in Financial Management and a Master of Research in
+          Management, both from IESE Business School, University of Navarra. His earlier
+          degrees include an MSc in Finance from the University of British Columbia, an
+          MSc in Economics and Finance from the Barcelona School of Economics, and a B.A.
+          in Economics from Universidad de Piura.
+        </p>
+        <p>
+          At Universidad de Piura he teaches Foundations of Corporate Finance and Firm
+          Valuation.
+        </p>
+      </div>
+      <aside>
+        <div class="interests">
+          <span class="mono">Research interests</span>
+          <div class="tags">
+            <span class="tag">Corporate Finance</span>
+            <span class="tag">Corporate Governance</span>
+            <span class="tag">Real &amp; Financial Decisions</span>
+            <span class="tag">Politics &amp; Finance</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="reveal">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><h2>Research</h2></div>
+    <div class="pub-group">
+      <span class="mono">Working Papers</span>
+
+      <!-- Paper 1 -->
+      <article class="paper">
+        <div class="paper-meta">
+          <span class="year">2025</span>
+          <span class="badge nber">NBER Working Paper</span>
+        </div>
+        <h3 class="paper-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5330817" target="_blank" rel="noopener">Common Ownership Around the World</a></h3>
+        <p class="paper-authors">Miguel Antón, Florian Ederer, Mireia Giné &amp; <span class="me">Guillermo Ramirez-Chiang</span></p>
+        <p class="paper-venue">NBER Working Paper No. w33965 · 93 pp · revised Jul 2025</p>
+        <p class="paper-presented"><span class="pl">Presented at</span>Boston University · Michigan State University · PUC Chile · RCF–ECGI Conference · Coloquio Global de Gobierno Corporativo 2026</p>
+        <!-- ABSTRACT: paste between <p>…</p> to enable the toggle
+        <details class="abs"><summary>Abstract</summary><p>Your abstract here.</p></details>
+        -->
+        <div class="paper-links">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5330817" target="_blank" rel="noopener">SSRN ↗</a>
+          <a href="https://corpgov.law.harvard.edu/2025/08/18/common-ownership-around-the-world/" target="_blank" rel="noopener">Harvard Law Forum ↗</a>
+        </div>
+      </article>
+
+      <!-- Paper 2 -->
+      <article class="paper">
+        <div class="paper-meta">
+          <span class="year">2026</span>
+          <span class="badge wp">Working Paper</span>
+        </div>
+        <h3 class="paper-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3770154" target="_blank" rel="noopener">Critical Workers and Corporate Debt Maturity</a></h3>
+        <p class="paper-authors"><span class="me">Guillermo Ramirez-Chiang</span></p>
+        <p class="paper-venue">Solo-authored · 55 pp · first posted 2021, revised Jun 2026</p>
+        <div class="paper-links">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3770154" target="_blank" rel="noopener">SSRN ↗</a>
+        </div>
+      </article>
+
+      <!-- Paper 3 -->
+      <article class="paper">
+        <div class="paper-meta">
+          <span class="year">2026</span>
+          <span class="badge wp">Working Paper</span>
+        </div>
+        <h3 class="paper-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7216299" target="_blank" rel="noopener">(N)evergreening Loans: From Incurred to Expected Credit Loss Models</a></h3>
+        <p class="paper-authors">Christian Eufinger, <span class="me">Guillermo Ramirez-Chiang</span> &amp; Yuki Sakasai</p>
+        <p class="paper-venue">66 pp · posted Aug 2026</p>
+        <div class="paper-links">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7216299" target="_blank" rel="noopener">SSRN ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>Contact</h2></div>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="mono">Email</span><a href="mailto:guillermo.ramirez@udep.edu.pe">guillermo.ramirez@udep.edu.pe</a></div>
+      <div class="contact-item"><span class="mono">Affiliation</span><span>Universidad de Piura, Peru</span></div>
+      <div class="contact-item"><span class="mono">Profiles</span>
+        <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2781538" target="_blank" rel="noopener">SSRN</a> ·
+        <a href="https://www.linkedin.com/in/guillermo-r-3555a024b/" target="_blank" rel="noopener">LinkedIn</a>
+        <!-- SCHOLAR: add  · <a href="YOUR_SCHOLAR_URL" target="_blank" rel="noopener">Google Scholar</a> -->
+      </div>
+      <div class="contact-item"><span class="mono">Documents</span><span style="color:var(--muted)">CV — coming soon</span></div>
+      <!-- CV: replace the span above with  <a href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a> -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-inner">
+    <span class="mono">© 2026 Guillermo Ramirez-Chiang</span>
+    <span class="mono">Universidad de Piura</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reveals = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window && !reduce){
+      var ro = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target);} });
+      }, {threshold:0.1});
+      reveals.forEach(function(el){ ro.observe(el); });
+    } else { reveals.forEach(function(el){ el.classList.add('in'); }); }
+
+    var sections = ['about','research','contact'];
+    var links = {};
+    document.querySelectorAll('.nav-links a').forEach(function(a){ links[a.getAttribute('href').replace('#','')] = a; });
+    if('IntersectionObserver' in window){
+      var so = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            Object.values(links).forEach(function(l){ l.classList.remove('active'); });
+            if(links[e.target.id]) links[e.target.id].classList.add('active');
+          }
+        });
+      }, {rootMargin:'-45% 0px -50% 0px'});
+      sections.forEach(function(id){ var el=document.getElementById(id); if(el) so.observe(el); });
+    }
+  })();
+</script>
+</body>
+</html>
